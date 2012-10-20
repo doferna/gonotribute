@@ -1,0 +1,25 @@
+.cn-button {
+  display: inline;
+  cursor: default;
+  color: white;
+  background-color: #357AE8;
+  padding: 4px 7px;
+  font-weight: bold;
+  border-radius: 2px;
+}
+
+.cn-button-green {
+  display: inline;
+  cursor: default;
+  color: white;
+  background-color: #4FB00F;
+  padding: 4px 7px;
+  font-weight: bold;
+  border-radius: 2px;
+}
+
+.cn-button-disabled {
+  background-color: whiteSmoke;
+  color: #999!important;
+  border-color: #ccc!important;
+}
