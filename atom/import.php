@@ -1,5 +1,4 @@
 <?php
-    
 /*
 
 
@@ -24,7 +23,7 @@
     // read feed into SimpleXML object
     $sxml = simplexml_load_file($feedURL);
     
-//    $fh = fopen("/tmp/atom.txt", 'w') or die("can't open file");
+    //$fh = fopen("/tmp/atom.txt", 'w') or die("can't open file");
     
     $t=(array) $sxml->title;
     $book['title']=$t[0];
@@ -39,21 +38,18 @@
         'code' => md5(uniqid (rand(), true)).date("Hmis"),
         'short'=> md5(uniqid (rand(), true)).date("Hmis"),
         'name' => $book['title'],
-        'title' => 'titulo1',
         "is_published"  => 0,
         "status"  => 0,
         "created_at" => $book['updated'],
-        "updated_at" => $book['updated'],
-        "updated_at2" => "NOW()",
-        "updated_at3" => "NOW()" 
+        "updated_at" => $book['updated']
                                               
     );
 	
 	$con = db_connect();
 	
-	$str="INSERT INTO  books (  code, short, name, title, is_published, status, created_at, updated_at, username) 
-		VALUES ('%s','%s','%s','%s',%s,%s,'%s','%s','%s');";
-	$query = sprintf($str, $book["code"], $book["short"], $book["name"], $book["title"], $book["is_published"], $book["status"], $book["created_at"], $book["updated_at"], $username);
+	$str="INSERT INTO  books (  code, short, name, is_published, status, created_at, updated_at, username) 
+		VALUES ('%s','%s','%s',%s,%s,'%s','%s','%s');";
+	$query = sprintf($str, $book["code"], $book["short"], $book["name"], $book["is_published"], $book["status"], $book["created_at"], $book["updated_at"], $username);
   //fwrite($fh, "$query\n");
   mysql_query($query);
 
